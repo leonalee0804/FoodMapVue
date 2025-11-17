@@ -1,0 +1,479 @@
+/* ============================================
+   側邊滑出選單 - 更寬版本 (650px)
+   ============================================ */
+
+body {
+  overflow-x: hidden;
+}
+
+/* 側邊欄容器 */
+#memberSetting {
+  position: fixed;
+  top: 0;
+  right: -550px;  /* 增加寬度 */
+  width: 550px;    
+  height: 100vh;
+  background: #FFFFFF;
+  box-shadow: -6px 0 30px rgba(122, 92, 60, 0.15);
+  z-index: 9999;  /* 提升到最高層級，確保不會被header擋住 */
+  overflow-y: auto;
+  overflow-x: hidden;
+  transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-left: 3px solid #D4BCA3;
+}
+
+#memberSetting.show {
+  right: 0;
+}
+
+/* 自訂滾動條 */
+#memberSetting::-webkit-scrollbar {
+  width: 8px;
+}
+
+#memberSetting::-webkit-scrollbar-track {
+  background: #FFFFFF;
+}
+
+#memberSetting::-webkit-scrollbar-thumb {
+  background: #C9A88A;
+  border-radius: 4px;
+}
+
+#memberSetting::-webkit-scrollbar-thumb:hover {
+  background: #A0826D;
+}
+
+/* 背景遮罩層 */
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9998;  /* 比側滑選單低一層 */
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease;
+  pointer-events: none;
+}
+
+.sidebar-overlay.show {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* 關閉按鈕 */
+#memberSetting .close-btn {
+  position: sticky;
+  top: 20px;
+  right: 20px;
+  float: right;
+  width: 45px;
+  height: 45px;
+  font-size: 28px;
+  line-height: 1;
+  border: none;
+  background: linear-gradient(135deg, #8B6F47 0%, #7A5C3C 100%);
+  color: white;
+  cursor: pointer;
+  border-radius: 50%;
+  box-shadow: 0 4px 15px rgba(139, 111, 71, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#memberSetting .close-btn:hover {
+  background: linear-gradient(135deg, #7A5C3C 0%, #5C4630 100%);
+  transform: rotate(90deg) scale(1.1);
+  box-shadow: 0 6px 20px rgba(139, 111, 71, 0.4);
+}
+
+#memberSetting .close-btn:active {
+  transform: rotate(90deg) scale(0.95);
+}
+
+/* ------------------- 卡片表單 ------------------- */
+.settings-card {
+  max-width: 100%;
+  margin: 0;
+  padding: 2rem;
+  background-color: transparent;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+/* 表單標題 */
+.settings-card h3,
+.settings-card h4 {
+  color: #000000;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 3px solid #D4BCA3;
+  position: relative;
+}
+
+.settings-card h3::before,
+.settings-card h4::before {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #8B6F47 0%, #A0826D 100%);
+}
+
+/* ------------------- 頭像區域 ------------------- */
+.avatar-section {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 2rem 1rem;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+#avatarPreview {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #D4BCA3;
+  box-shadow: 0 4px 20px rgba(122, 92, 60, 0.15);
+  display: block;
+  margin: 0 auto 1rem auto;
+  transition: all 0.3s;
+}
+
+#avatarPreview:hover {
+  border-color: #8B6F47;
+  transform: scale(1.05);
+  box-shadow: 0 6px 30px rgba(122, 92, 60, 0.25);
+}
+
+.avatar-upload-btn {
+  display: inline-block;
+  padding: 0.65rem 1.5rem;
+  background: linear-gradient(135deg, #8B6F47 0%, #7A5C3C 100%);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 12px rgba(139, 111, 71, 0.2);
+}
+
+.avatar-upload-btn:hover {
+  background: linear-gradient(135deg, #7A5C3C 0%, #5C4630 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(139, 111, 71, 0.3);
+}
+
+/* ------------------- 表單區域 ------------------- */
+.form-section {
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  margin-bottom: 1.5rem;
+  box-shadow: none;
+  transition: none;
+}
+
+.form-section:hover {
+  box-shadow: none;
+}
+
+/* ------------------- 表單標籤 ------------------- */
+.settings-card label {
+  font-weight: 600;
+  color: #000000;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  display: block;
+  letter-spacing: 0.3px;
+}
+
+/* ------------------- 表單輸入框 ------------------- */
+.settings-card input.form-control,
+.settings-card select.form-control,
+.settings-card textarea.form-control {
+  border: 2px solid #E8E8E8;
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  transition: all 0.3s;
+  background: #FFFFFF;
+}
+
+.settings-card input.form-control:focus,
+.settings-card select.form-control:focus,
+.settings-card textarea.form-control:focus {
+  border-color: #8B6F47;
+  background: white;
+  box-shadow: 0 0 0 4px rgba(139, 111, 71, 0.1);
+  outline: none;
+}
+
+.settings-card input.form-control:hover,
+.settings-card select.form-control:hover,
+.settings-card textarea.form-control:hover {
+  border-color: #C9A88A;
+  background: white;
+}
+
+/* Placeholder 樣式 */
+.settings-card input.form-control::placeholder,
+.settings-card textarea.form-control::placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+/* ------------------- 性別選項 ------------------- */
+.gender-options {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.gender-options .form-check {
+  flex: 1;
+  margin-right: 0;
+}
+
+.gender-options .form-check-input {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #8B6F47;
+  margin-top: 0.15rem;
+}
+
+.gender-options .form-check-input:checked {
+  background-color: #8B6F47;
+  border-color: #8B6F47;
+}
+
+.gender-options .form-check-label {
+  cursor: pointer;
+  font-weight: 500;
+  margin-left: 0.5rem;
+  color: #333;
+}
+
+/* ------------------- 表單欄位間距 ------------------- */
+.mb-3 {
+  margin-bottom: 1.25rem !important;
+}
+
+/* ------------------- 表單按鈕區 ------------------- */
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid #F5F5F5;
+}
+
+.form-actions button {
+  flex: 1;
+  padding: 0.85rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* 儲存按鈕 */
+.form-actions button[type="submit"],
+.form-actions .btn-primary {
+  background: linear-gradient(135deg, #8B6F47 0%, #7A5C3C 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(139, 111, 71, 0.3);
+}
+
+.form-actions button[type="submit"]:hover,
+.form-actions .btn-primary:hover {
+  background: linear-gradient(135deg, #7A5C3C 0%, #5C4630 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(139, 111, 71, 0.4);
+}
+
+.form-actions button[type="submit"]:active,
+.form-actions .btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(139, 111, 71, 0.3);
+}
+
+/* 取消/重置按鈕 */
+.form-actions button[type="reset"],
+.form-actions .btn-secondary {
+  background: white;
+  color: #666;
+  border: 2px solid #E8E8E8;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.form-actions button[type="reset"]:hover,
+.form-actions .btn-secondary:hover {
+  background: #F8F8F8;
+  border-color: #8B6F47;
+  color: #8B6F47;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(139, 111, 71, 0.15);
+}
+
+/* ------------------- 輔助文字 ------------------- */
+.form-text {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 0.5rem;
+  display: block;
+}
+
+/* ------------------- 錯誤訊息 ------------------- */
+.invalid-feedback {
+  display: block;
+  color: #dc3545;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+.is-invalid {
+  border-color: #dc3545 !important;
+}
+
+.is-invalid:focus {
+  box-shadow: 0 0 0 4px rgba(220, 53, 69, 0.1) !important;
+}
+
+/* ------------------- 成功訊息 ------------------- */
+.valid-feedback {
+  display: block;
+  color: #28a745;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+.is-valid {
+  border-color: #28a745 !important;
+}
+
+/* ------------------- Loading 狀態 ------------------- */
+.form-actions button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* ------------------- 響應式設計 ------------------- */
+@media (max-width: 768px) {
+  #memberSetting {
+    width: 100%;
+    right: -100%;
+  }
+
+  .settings-card {
+    padding: 1.5rem 1rem;
+  }
+
+  .form-section {
+    padding: 0;
+  }
+
+  #avatarPreview {
+    width: 120px;
+    height: 120px;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .form-actions button {
+    width: 100%;
+  }
+
+  .gender-options {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .settings-card {
+    padding: 1rem 0.75rem;
+  }
+
+  #memberSetting .close-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    top: 15px;
+    right: 15px;
+  }
+
+  #avatarPreview {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/* ------------------- 動畫效果 ------------------- */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* 移除區塊動畫，因為沒有卡片背景了 */
+
+/* ------------------- 分隔線 ------------------- */
+.settings-divider {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #D4BCA3, transparent);
+  margin: 2rem 0;
+  border: none;
+}
+
+/* ------------------- 資訊提示 ------------------- */
+.info-tooltip {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background: #8B6F47;
+  color: white;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 18px;
+  font-size: 12px;
+  margin-left: 5px;
+  cursor: help;
+}
+
+/* ------------------- Select 下拉選單美化 ------------------- */
+.settings-card select.form-control {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%238B6F47' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 12px;
+  padding-right: 2.5rem;
+}

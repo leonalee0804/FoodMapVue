@@ -1,0 +1,496 @@
+/* ============================================
+   Settings 表單美化 - 活潑現代配色
+   ============================================ */
+
+.settings-card {
+  width: 100%;
+}
+
+.settings-card form {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 0;
+  border: none;
+  max-width: 100%;
+  height: auto;
+  margin: 0;
+  box-shadow: none;
+}
+
+/* 表單標題 */
+.settings-card form h3,
+.settings-card form h4 {
+  color: #1a1a1a;
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 3px solid #e0e0e0;
+  position: relative;
+}
+
+.settings-card form h3::before,
+.settings-card form h4::before {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #FF6B6B 0%, #4ECDC4 100%);
+}
+
+/* 表單標籤 */
+.settings-card form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #2d3748;
+  letter-spacing: 0.3px;
+}
+
+/* 必填標記 */
+.settings-card form label .required {
+  color: #FF6B6B;
+  margin-left: 3px;
+}
+
+/* 表單輸入框 */
+.settings-card form input,
+.settings-card form select,
+.settings-card form textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.25rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  background-color: #ffffff;
+  font-family: inherit;
+}
+
+/* 輸入框 Focus 效果 */
+.settings-card form input:focus,
+.settings-card form select:focus,
+.settings-card form textarea:focus {
+  outline: none;
+  border-color: #4ECDC4;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 4px rgba(78, 205, 196, 0.1);
+}
+
+/* 輸入框 Hover 效果 */
+.settings-card form input:hover,
+.settings-card form select:hover,
+.settings-card form textarea:hover {
+  border-color: #4ECDC4;
+}
+
+/* Placeholder 樣式 */
+.settings-card form input::placeholder,
+.settings-card form textarea::placeholder {
+  color: #a0aec0;
+  font-style: italic;
+}
+
+/* Disabled 狀態 */
+.settings-card form input:disabled,
+.settings-card form select:disabled,
+.settings-card form textarea:disabled {
+  background-color: #f7fafc;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* 錯誤狀態 */
+.settings-card form input.is-invalid,
+.settings-card form select.is-invalid,
+.settings-card form textarea.is-invalid {
+  border-color: #FF6B6B;
+}
+
+.settings-card form input.is-invalid:focus {
+  box-shadow: 0 0 0 4px rgba(255, 107, 107, 0.1);
+}
+
+/* 成功狀態 */
+.settings-card form input.is-valid,
+.settings-card form select.is-valid,
+.settings-card form textarea.is-valid {
+  border-color: #51CF66;
+}
+
+/* 錯誤訊息 */
+.settings-card form .invalid-feedback {
+  display: block;
+  color: #FF6B6B;
+  font-size: 0.85rem;
+  margin-top: -1rem;
+  margin-bottom: 1rem;
+}
+
+/* 提示文字 */
+.settings-card form .form-text {
+  display: block;
+  color: #718096;
+  font-size: 0.85rem;
+  margin-top: -1rem;
+  margin-bottom: 1rem;
+}
+
+/* Select 下拉選單美化 */
+.settings-card form select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%234ECDC4' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 12px;
+  padding-right: 2.5rem;
+  cursor: pointer;
+}
+
+/* Textarea */
+.settings-card form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Radio 和 Checkbox */
+.settings-card form input[type="radio"],
+.settings-card form input[type="checkbox"] {
+  width: auto;
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+
+/* 性別選項 */
+.settings-card form .gender-options {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.settings-card form .gender-options label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.settings-card form .gender-options input[type="radio"] {
+  width: 20px;
+  height: 20px;
+  margin-right: 0.5rem;
+  margin-bottom: 0;
+  accent-color: #4ECDC4;
+}
+
+/* 頭像上傳區域 */
+.settings-card form .avatar-upload {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  border: 2px dashed #cbd5e0;
+  border-radius: 10px;
+  background: #f7fafc;
+  transition: all 0.3s;
+}
+
+.settings-card form .avatar-upload:hover {
+  border-color: #4ECDC4;
+  background: #E6FFFA;
+}
+
+.settings-card form .avatar-upload img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #4ECDC4;
+  margin-bottom: 1rem;
+  transition: all 0.3s;
+}
+
+.settings-card form .avatar-upload img:hover {
+  border-color: #FF6B6B;
+  transform: scale(1.05);
+  box-shadow: 0 8px 30px rgba(78, 205, 196, 0.3);
+}
+
+.settings-card form .avatar-upload input[type="file"] {
+  display: none;
+}
+
+.settings-card form .avatar-upload label {
+  display: inline-block;
+  padding: 0.65rem 1.5rem;
+  background: linear-gradient(135deg, #4ECDC4 0%, #44A8A0 100%);
+  color: white;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s;
+  margin-bottom: 0;
+}
+
+.settings-card form .avatar-upload label:hover {
+  background: linear-gradient(135deg, #44A8A0 0%, #3A8E88 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(78, 205, 196, 0.4);
+}
+
+/* 表單分組 */
+.settings-card form .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.settings-card form .form-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+/* 提交按鈕 */
+.settings-card form button[type="submit"],
+.settings-card form .btn-submit {
+  width: 100%;
+  background: linear-gradient(135deg, #4ECDC4 0%, #44A8A0 100%);
+  color: #ffffff;
+  border: none;
+  padding: 0.875rem 1.5rem;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(78, 205, 196, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 1rem;
+}
+
+.settings-card form button[type="submit"]:hover,
+.settings-card form .btn-submit:hover {
+  background: linear-gradient(135deg, #44A8A0 0%, #3A8E88 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(78, 205, 196, 0.4);
+}
+
+.settings-card form button[type="submit"]:active,
+.settings-card form .btn-submit:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(78, 205, 196, 0.3);
+}
+
+.settings-card form button[type="submit"]:disabled,
+.settings-card form .btn-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* 次要按鈕（取消、重置） */
+.settings-card form button[type="reset"],
+.settings-card form .btn-secondary {
+  width: 100%;
+  background: #ffffff;
+  color: #718096;
+  border: 2px solid #e2e8f0;
+  padding: 0.875rem 1.5rem;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 0.5rem;
+}
+
+.settings-card form button[type="reset"]:hover,
+.settings-card form .btn-secondary:hover {
+  background: #f7fafc;
+  border-color: #FF6B6B;
+  color: #FF6B6B;
+  transform: translateY(-2px);
+}
+
+/* 按鈕組 */
+.settings-card form .form-actions,
+.settings-card form .button-group {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid #f7fafc;
+}
+
+.settings-card form .form-actions button,
+.settings-card form .button-group button {
+  flex: 1;
+  margin-top: 0;
+}
+
+/* 分隔線 */
+.settings-card form hr,
+.settings-card form .divider {
+  border: none;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #e2e8f0, transparent);
+  margin: 2rem 0;
+}
+
+/* 資訊提示框 */
+.settings-card form .alert {
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 1.25rem;
+  font-size: 0.9rem;
+}
+
+.settings-card form .alert-info {
+  background: #EBF8FF;
+  color: #2C5282;
+  border-left: 4px solid #4299E1;
+}
+
+.settings-card form .alert-warning {
+  background: #FFFAF0;
+  color: #C05621;
+  border-left: 4px solid #ED8936;
+}
+
+.settings-card form .alert-success {
+  background: #F0FFF4;
+  color: #22543D;
+  border-left: 4px solid #51CF66;
+}
+
+.settings-card form .alert-danger {
+  background: #FFF5F5;
+  color: #742A2A;
+  border-left: 4px solid #FF6B6B;
+}
+
+/* Loading 狀態 */
+.settings-card form button.loading {
+  position: relative;
+  color: transparent;
+}
+
+.settings-card form button.loading::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 50%;
+  left: 50%;
+  margin-left: -10px;
+  margin-top: -10px;
+  border: 3px solid #ffffff;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ------------------- 響應式設計 ------------------- */
+@media (max-width: 768px) {
+  .settings-card form {
+    padding: 1.5rem 1rem;
+  }
+
+  .settings-card form h3,
+  .settings-card form h4 {
+    font-size: 1.3rem;
+  }
+
+  .settings-card form .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .settings-card form .gender-options {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .settings-card form .form-actions,
+  .settings-card form .button-group {
+    flex-direction: column;
+  }
+
+  .settings-card form .form-actions button,
+  .settings-card form .button-group button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .settings-card form {
+    padding: 1rem 0.75rem;
+  }
+
+  .settings-card form input,
+  .settings-card form select,
+  .settings-card form textarea {
+    padding: 0.65rem 0.85rem;
+    font-size: 0.9rem;
+  }
+
+  .settings-card form button[type="submit"],
+  .settings-card form button[type="reset"] {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.95rem;
+  }
+
+  .settings-card form .avatar-upload img {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/* ------------------- 動畫效果 ------------------- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.settings-card form {
+  animation: fadeIn 0.4s ease-out;
+}
+
+/* ------------------- 輔助類別 ------------------- */
+.settings-card form .text-muted {
+  color: #718096;
+  font-size: 0.85rem;
+}
+
+.settings-card form .text-danger {
+  color: #FF6B6B;
+}
+
+.settings-card form .text-success {
+  color: #51CF66;
+}
+
+.settings-card form .mb-0 {
+  margin-bottom: 0 !important;
+}
+
+.settings-card form .mt-3 {
+  margin-top: 1rem !important;
+}

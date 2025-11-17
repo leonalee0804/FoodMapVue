@@ -1,0 +1,1231 @@
+/* ========================================
+   Member Settings - Milk Tea Color Theme
+   ======================================== */
+
+/* Root Variables */
+*{
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --milktea-primary: #D4A574;
+    /* 主要奶茶色 */
+    --milktea-light: #F5E6D3;
+    /* 淺奶茶色 */
+    --milktea-lighter: #FAF4ED;
+    /* 更淺奶茶色 */
+    --milktea-dark: #9B7653;
+    /* 深奶茶色 */
+    --milktea-accent: #E8C4A0;
+    /* 強調色 */
+    --milktea-muted: #F0E5DA;
+    /* 柔和色 */
+
+    --text-primary: #5C4033;
+    /* 主要文字色 */
+    --text-secondary: #8B7355;
+    /* 次要文字色 */
+    --text-light: #A89584;
+    /* 淺色文字 */
+
+    --border-color: #E5D4C1;
+    /* 邊框色 */
+    --shadow-light: rgba(212, 165, 116, 0.1);
+    --shadow-medium: rgba(212, 165, 116, 0.15);
+}
+
+/* General Styles */
+body {
+    background: linear-gradient(135deg, #FAF4ED 0%, #F5E6D3 100%);
+    min-height: 100vh;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.container-fluid {
+    background: transparent;
+    padding: 0;
+}
+
+/* Main Content Area */
+.main-content {
+    padding: 2rem;
+    min-height: 100vh;
+    background: transparent;
+}
+
+/* Title Group */
+.title-group h1 {
+    color: var(--text-primary);
+    font-weight: 700;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 15px;
+}
+
+.title-group h1::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 24px;
+    background: var(--milktea-primary);
+    border-radius: 2px;
+}
+
+/* Custom Block */
+.custom-block {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 5px 20px var(--shadow-light);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.custom-block:hover {
+    box-shadow: 0 8px 30px var(--shadow-medium);
+    transform: translateY(-2px);
+}
+
+/* Navigation Tabs */
+.nav-tabs {
+    border-bottom: 2px solid var(--milktea-light);
+    margin-bottom: 2rem;
+}
+
+.nav-tabs .nav-item {
+    margin-bottom: -2px;
+}
+
+.nav-tabs .nav-link {
+    color: var(--text-secondary);
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    padding: 0.75rem 1.5rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-tabs .nav-link:hover {
+    color: var(--milktea-dark);
+    background: var(--milktea-lighter);
+    border-radius: 10px 10px 0 0;
+}
+
+.nav-tabs .nav-link.active {
+    color: var(--text-primary);
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid var(--milktea-primary);
+    font-weight: 600;
+}
+
+/* Tab Content Headers */
+.tab-content h6 {
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--milktea-light);
+}
+
+/* Avatar Section */
+.text-center img {
+    border: 4px solid var(--milktea-light);
+    box-shadow: 0 4px 15px var(--shadow-light);
+    transition: all 0.3s ease;
+}
+
+.text-center img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px var(--shadow-medium);
+}
+
+/* Form Controls */
+.form-label {
+    color: var(--text-primary);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.form-control {
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    background: white;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.form-control:hover {
+    border-color: var(--milktea-accent);
+    box-shadow: 0 2px 6px rgba(212, 165, 116, 0.08);
+}
+
+.form-control:focus {
+    border-color: var(--milktea-primary);
+    box-shadow: 0 0 0 0.2rem rgba(212, 165, 116, 0.15);
+    background: white;
+    outline: none;
+}
+
+.form-control::placeholder {
+    color: var(--text-light);
+}
+
+/* File Input */
+input[type="file"].form-control {
+    padding: 0.5rem 1rem;
+    background: white;
+    border: 2px dashed var(--border-color);
+}
+
+input[type="file"].form-control:hover {
+    border-color: var(--milktea-accent);
+    background: var(--milktea-lighter);
+}
+
+/* Date Input */
+input[type="date"].form-control {
+    border: 2px solid var(--border-color);
+    background: white;
+}
+
+input[type="date"].form-control:hover {
+    border-color: var(--milktea-accent);
+}
+
+/* Tel Input */
+input[type="tel"].form-control {
+    border: 2px solid var(--border-color);
+    background: white;
+}
+
+input[type="tel"].form-control:hover {
+    border-color: var(--milktea-accent);
+}
+
+/* Text Input */
+input[type="text"].form-control {
+    border: 2px solid var(--border-color);
+    background: white;
+}
+
+input[type="text"].form-control:hover {
+    border-color: var(--milktea-accent);
+}
+
+/* Password Input */
+input[type="password"].form-control {
+    border: 2px solid var(--border-color);
+    background: white;
+}
+
+input[type="password"].form-control:hover {
+    border-color: var(--milktea-accent);
+}
+
+/* Radio Buttons */
+input[type="radio"] {
+    accent-color: var(--milktea-primary);
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+    cursor: pointer;
+    border: 2px solid var(--border-color);
+}
+
+input[type="radio"]:checked {
+    border-color: var(--milktea-dark);
+}
+
+label {
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+label:hover {
+    color: var(--milktea-dark);
+}
+
+/* V-Select Dropdown Styling */
+.v-select {
+    background: white;
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.v-select:hover {
+    border-color: var(--milktea-accent);
+    box-shadow: 0 2px 6px rgba(212, 165, 116, 0.08);
+}
+
+.v-select.vs--open {
+    border-color: var(--milktea-primary);
+    box-shadow: 0 0 0 0.2rem rgba(212, 165, 116, 0.15);
+}
+
+.vs__dropdown-toggle {
+    padding: 0.5rem 0.75rem;
+    border: none;
+}
+
+.vs__selected {
+    color: var(--text-primary);
+}
+
+.vs__search::placeholder {
+    color: var(--text-light);
+}
+
+.vs__dropdown-menu {
+    border: 2px solid var(--milktea-light);
+    border-radius: 12px;
+    box-shadow: 0 8px 25px var(--shadow-medium);
+    margin-top: 5px;
+}
+
+.vs__dropdown-option {
+    color: var(--text-primary);
+    padding: 0.75rem 1rem;
+    transition: all 0.2s ease;
+}
+
+.vs__dropdown-option--highlight {
+    background: var(--milktea-light);
+    color: var(--text-primary);
+}
+
+.vs__dropdown-option--selected {
+    background: var(--milktea-accent);
+    color: white !important;
+}
+
+/* ========== 美化按鈕樣式 ========== */
+
+/* Submit 按鈕 - 主要動作按鈕 */
+button[type="submit"] {
+    background: linear-gradient(135deg, var(--milktea-primary) 0%, var(--milktea-dark) 100%);
+    color: white !important;
+    border: none;
+    border-radius: 12px;
+    padding: 0.875rem 2rem;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 15px var(--shadow-light),
+                0 2px 8px rgba(212, 165, 116, 0.2);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+/* Submit 按鈕發光效果 */
+button[type="submit"]::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    transition: left 0.5s;
+}
+
+button[type="submit"]:hover::before {
+    left: 100%;
+}
+
+button[type="submit"]:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(212, 165, 116, 0.3),
+                0 4px 12px rgba(212, 165, 116, 0.25);
+    background: linear-gradient(135deg, var(--milktea-dark) 0%, #8B6744 100%);
+}
+
+button[type="submit"]:active {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px var(--shadow-light);
+}
+
+/* Submit 按鈕圖示 */
+button[type="submit"]::after {
+    content: '✓';
+    margin-left: 8px;
+    font-size: 1.1rem;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+button[type="submit"]:hover::after {
+    transform: scale(1.2);
+}
+
+/* Reset 按鈕 - 次要動作按鈕 */
+button[type="reset"] {
+    background: white;
+    color: var(--text-primary);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    padding: 0.875rem 2rem;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+/* Reset 按鈕背景動畫 */
+button[type="reset"]::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: var(--milktea-lighter);
+    transform: translate(-50%, -50%);
+    transition: width 0.4s, height 0.4s;
+    z-index: 0;
+}
+
+button[type="reset"]:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+button[type="reset"]:hover {
+    border-color: var(--milktea-accent);
+    color: var(--milktea-dark);
+    box-shadow: 0 4px 15px rgba(212, 165, 116, 0.15);
+    transform: translateY(-2px);
+}
+
+button[type="reset"]:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+/* Reset 按鈕文字保持在前景 */
+button[type="reset"] span,
+button[type="reset"]::after {
+    position: relative;
+    z-index: 1;
+}
+
+/* Reset 按鈕圖示 */
+button[type="reset"]::after {
+    content: '↻';
+    margin-left: 8px;
+    font-size: 1.2rem;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+button[type="reset"]:hover::after {
+    transform: rotate(180deg);
+}
+
+/* 按鈕容器樣式優化 */
+.d-flex:has(button[type="submit"]),
+.d-flex:has(button[type="reset"]) {
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+/* 確保按鈕在 flex 容器中的表現 */
+.d-flex button[type="submit"],
+.d-flex button[type="reset"] {
+    flex: 1;
+    min-width: 120px;
+}
+
+/* 按鈕禁用狀態 */
+button[type="submit"]:disabled,
+button[type="reset"]:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+button[type="submit"]:disabled:hover,
+button[type="reset"]:disabled:hover {
+    transform: none !important;
+    box-shadow: 0 4px 15px var(--shadow-light);
+}
+
+/* Loading 狀態動畫 */
+button.loading {
+    position: relative;
+    color: transparent;
+}
+
+button.loading::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 50%;
+    left: 50%;
+    margin-left: -8px;
+    margin-top: -8px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white !important;
+    border-radius: 50%;
+    animation: spinner 0.6s linear infinite;
+}
+
+@keyframes spinner {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Switch Controls */
+.form-check-input {
+    width: 48px;
+    height: 24px;
+    background-color: var(--milktea-light);
+    border: 2px solid var(--milktea-accent);
+    cursor: pointer;
+}
+
+.form-check-input:checked {
+    background-color: var(--milktea-primary);
+    border-color: var(--milktea-dark);
+}
+
+.form-check-input:focus {
+    box-shadow: 0 0 0 0.2rem rgba(212, 165, 116, 0.25);
+}
+
+.form-check-label {
+    color: var(--text-primary);
+    font-weight: 500;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Small Text */
+small {
+    color: var(--text-light);
+    font-size: 0.875rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-content {
+        padding: 1rem;
+    }
+
+    .custom-block {
+        padding: 1.5rem;
+        border-radius: 15px;
+    }
+
+    .nav-tabs .nav-link {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .title-group h1 {
+        font-size: 1.5rem;
+    }
+
+    button[type="submit"],
+    button[type="reset"] {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    /* 手機版按鈕堆疊 */
+    .d-flex:has(button[type="submit"]) {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .d-flex button[type="submit"],
+    .d-flex button[type="reset"] {
+        width: 100%;
+    }
+}
+
+/* Loading State */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.custom-block {
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--milktea-lighter);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--milktea-accent);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--milktea-primary);
+}
+
+/* ========== 信用卡輪播容器 ========== */
+.credit-cards-container {
+  position: relative;
+}
+
+.card-carousel {
+  position: relative;
+  height: 420px;
+  overflow: hidden;
+  perspective: 1000px;
+}
+
+.credit-card-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+/* ========== 信用卡樣式 ========== */
+.credit-card {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--milktea-primary) 0%, var(--milktea-dark) 100%);
+  border-radius: 24px;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.credit-card:hover {
+  transform: translateY(-5px) rotateX(2deg);
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.2);
+}
+
+/* 不同卡片類型的顏色 */
+.credit-card.visa {
+  background: linear-gradient(135deg, #1A1F71 0%, #0D47A1 100%);
+}
+
+.credit-card.mastercard {
+  background: linear-gradient(135deg, #EB001B 0%, #F79E1B 100%);
+}
+
+.credit-card.amex {
+  background: linear-gradient(135deg, #006FCF 0%, #00B4E6 100%);
+}
+
+.credit-card.jcb {
+  background: linear-gradient(135deg, #0E4C92 0%, #1E88E5 100%);
+}
+
+/* ========== 卡片裝飾元素 ========== */
+.card-decoration,
+.card-decoration-2 {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  pointer-events: none;
+}
+
+.card-decoration {
+  width: 300px;
+  height: 300px;
+  top: -100px;
+  right: -100px;
+}
+
+.card-decoration-2 {
+  width: 200px;
+  height: 200px;
+  bottom: -50px;
+  left: -50px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* ========== 品牌標誌 ========== */
+.card-brand {
+  position: relative;
+  z-index: 2;
+}
+
+.brand-logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white !important;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* ========== 晶片 ========== */
+.card-chip {
+  width: 50px;
+  height: 40px;
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  border-radius: 8px;
+  position: relative;
+  z-index: 2;
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 6px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.chip-line {
+  height: 2px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 1px;
+}
+
+/* ========== 餘額 ========== */
+.card-balance {
+  position: relative;
+  z-index: 2;
+  margin: 1.5rem 0;
+}
+
+.card-balance small {
+  display: block;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+
+.card-balance h2 {
+  color: white !important;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ========== 卡號 ========== */
+.card-number {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  position: relative;
+  z-index: 2;
+  margin: 1.5rem 0;
+}
+
+.card-number span {
+  flex: 1;
+  text-align: center;
+  font-family: 'Courier New', monospace;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white !important;
+  letter-spacing: 2px;
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+}
+
+/* ========== 卡片資訊 ========== */
+.card-info {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+.card-holder,
+.card-expiry,
+.card-cvv {
+  flex: 1;
+}
+
+.card-info small {
+  display: block;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.3rem;
+}
+
+.card-info p {
+  color: white !important;
+  font-weight: 600;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* ========== 指示器 ========== */
+.card-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.indicator-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid var(--milktea-accent);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.indicator-dot.active {
+  background: var(--milktea-primary);
+  border-color: var(--milktea-primary);
+  transform: scale(1.2);
+}
+
+.indicator-dot:hover {
+  border-color: var(--milktea-primary);
+  transform: scale(1.1);
+}
+
+.dot-inner {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: white;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.indicator-dot.active .dot-inner {
+  opacity: 1;
+}
+
+/* ========== 導航按鈕 ========== */
+.card-navigation {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.nav-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  pointer-events: all;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.nav-btn:hover {
+  background: white;
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.nav-btn svg {
+  color: var(--milktea-dark);
+}
+
+/* ========== 卡片說明 ========== */
+.card-note {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: rgba(212, 165, 116, 0.1);
+  border-radius: 12px;
+  border: 1px solid var(--milktea-light);
+}
+
+.card-note p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+/* ========== 切換動畫 ========== */
+/* 向左滑動 */
+.slide-left-enter-active,
+.slide-left-leave-active {
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.slide-left-enter-from {
+  transform: translateX(100%) rotateY(20deg);
+  opacity: 0;
+}
+
+.slide-left-leave-to {
+  transform: translateX(-100%) rotateY(-20deg);
+  opacity: 0;
+}
+
+/* 向右滑動 */
+.slide-right-enter-active,
+.slide-right-leave-active {
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.slide-right-enter-from {
+  transform: translateX(-100%) rotateY(-20deg);
+  opacity: 0;
+}
+
+.slide-right-leave-to {
+  transform: translateX(100%) rotateY(20deg);
+  opacity: 0;
+}
+
+/* ========== 響應式設計 ========== */
+@media (max-width: 768px) {
+  .card-carousel {
+    height: 350px;
+  }
+
+  .credit-card {
+    padding: 1.5rem;
+    border-radius: 20px;
+  }
+
+  .card-balance h2 {
+    font-size: 2rem;
+  }
+
+  .card-number span {
+    font-size: 1rem;
+    padding: 0.4rem;
+  }
+
+  .nav-btn {
+    width: 35px;
+    height: 35px;
+  }
+
+  .card-navigation {
+    padding: 0 0.5rem;
+  }
+}
+
+/* ========== 卡片發光效果 ========== */
+.credit-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transform: rotate(45deg);
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0%, 100% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+  50% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
+}
+
+/* ========== 按鈕樣式優化版（移除 Reset 背景動畫） ========== */
+
+/* Submit 按鈕 - 主要動作按鈕 */
+button[type="submit"],
+.form-control[type="submit"],
+input[type="submit"] {
+    background: linear-gradient(135deg, #D4A574 0%, #9B7653 100%) !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 12px;
+    padding: 0.875rem 2rem;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 15px rgba(212, 165, 116, 0.1),
+                0 2px 8px rgba(212, 165, 116, 0.2);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    text-transform: uppercase;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Submit 按鈕發光效果 */
+button[type="submit"]::before,
+.form-control[type="submit"]::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    transition: left 0.5s;
+}
+
+button[type="submit"]:hover::before,
+.form-control[type="submit"]:hover::before {
+    left: 100%;
+}
+
+button[type="submit"]:hover,
+.form-control[type="submit"]:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(212, 165, 116, 0.3),
+                0 4px 12px rgba(212, 165, 116, 0.25);
+    background: linear-gradient(135deg, #9B7653 0%, #8B6744 100%) !important;
+    color: #ffffff !important;
+}
+
+button[type="submit"]:active,
+.form-control[type="submit"]:active {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(212, 165, 116, 0.1);
+}
+
+/* Submit 按鈕圖示 */
+button[type="submit"]::after,
+.form-control[type="submit"]::after {
+    content: '✓';
+    margin-left: 8px;
+    font-size: 1.1rem;
+    display: inline-block;
+    transition: transform 0.3s ease;
+    color: #ffffff !important;
+}
+
+button[type="submit"]:hover::after,
+.form-control[type="submit"]:hover::after {
+    transform: scale(1.2);
+}
+
+/* Reset 按鈕 - 次要動作按鈕（無背景動畫） */
+button[type="reset"],
+.form-control[type="reset"],
+input[type="reset"] {
+    background: white !important;
+    color: #5C4033 !important;
+    border: 2px solid #E5D4C1 !important;
+    border-radius: 12px;
+    padding: 0.875rem 2rem;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    position: relative;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+/* Reset 按鈕懸停效果 - 簡單乾淨 */
+button[type="reset"]:hover,
+.form-control[type="reset"]:hover {
+    border-color: #E8C4A0 !important;
+    color: #9B7653 !important;
+    background: #FAF4ED !important;
+    box-shadow: 0 4px 15px rgba(212, 165, 116, 0.15);
+    transform: translateY(-2px);
+}
+
+button[type="reset"]:active,
+.form-control[type="reset"]:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+/* Reset 按鈕圖示 */
+button[type="reset"]::after,
+.form-control[type="reset"]::after {
+    content: '↻';
+    margin-left: 8px;
+    font-size: 1.2rem;
+    display: inline-block;
+    transition: transform 0.3s ease;
+    color: inherit !important;
+}
+
+button[type="reset"]:hover::after,
+.form-control[type="reset"]:hover::after {
+    transform: rotate(180deg);
+}
+
+/* 按鈕容器樣式優化 */
+.d-flex:has(button[type="submit"]),
+.d-flex:has(button[type="reset"]) {
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+/* 確保按鈕在 flex 容器中的表現 */
+.d-flex button[type="submit"],
+.d-flex button[type="reset"],
+.d-flex .form-control[type="submit"],
+.d-flex .form-control[type="reset"] {
+    flex: 1;
+    min-width: 120px;
+}
+
+/* 按鈕禁用狀態 */
+button[type="submit"]:disabled,
+button[type="reset"]:disabled,
+.form-control[type="submit"]:disabled,
+.form-control[type="reset"]:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+button[type="submit"]:disabled:hover,
+button[type="reset"]:disabled:hover,
+.form-control[type="submit"]:disabled:hover,
+.form-control[type="reset"]:disabled:hover {
+    transform: none !important;
+    box-shadow: 0 4px 15px rgba(212, 165, 116, 0.1);
+}
+
+/* Loading 狀態動畫 */
+button.loading,
+.form-control.loading {
+    position: relative;
+    color: transparent !important;
+}
+
+button.loading::after,
+.form-control.loading::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 50%;
+    left: 50%;
+    margin-left: -8px;
+    margin-top: -8px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spinner 0.6s linear infinite;
+}
+
+@keyframes spinner {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+    button[type="submit"],
+    button[type="reset"],
+    .form-control[type="submit"],
+    .form-control[type="reset"] {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    /* 手機版按鈕堆疊 */
+    .d-flex:has(button[type="submit"]) {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .d-flex button[type="submit"],
+    .d-flex button[type="reset"],
+    .d-flex .form-control[type="submit"],
+    .d-flex .form-control[type="reset"] {
+        width: 100%;
+    }
+}
+
+/* 確保按鈕內的文字顏色 */
+button[type="submit"] *,
+.form-control[type="submit"] * {
+    color: #ffffff !important;
+}
+
+button[type="reset"] *,
+.form-control[type="reset"] * {
+    color: inherit !important;
+}
